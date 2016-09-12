@@ -1,6 +1,8 @@
 (function () {
     var ghost = require('ghost');
-    ghost().then(function (ghostServer) {
+    ghost({
+        config: path.join(__dirname, 'ghost_config.js')
+    }).then(function (ghostServer) {
         console.log('ghostServer.config.paths.subdir, ghostServer.rootApp', ghostServer.config.paths.subdir, ghostServer.rootApp);
     })
         .catch(function (err) {

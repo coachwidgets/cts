@@ -1,2 +1,2 @@
 web: node server.js
-worker: ghost_setup.js
+worker: node ghost_setup.js

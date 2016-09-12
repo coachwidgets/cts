@@ -4,7 +4,6 @@ let express = require('express'),
     root = path.join(__dirname, 'build/unbundled'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
-    bodyParser = require('body-parser'),
     ghost = require('ghost'),
     app = express();
 
@@ -20,8 +19,6 @@ ghost().then((ghostServer) => {
         // uncomment after placing your favicon in /public
         //.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
         .use(logger('dev'))
-        .use(bodyParser.json())
-        .use(bodyParser.urlencoded({ extended: false }))
         .use(express.static(root))
 
         // catch 404 and forward to error handler

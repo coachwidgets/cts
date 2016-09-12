@@ -4,15 +4,14 @@ ghost().then(function (ghostServer) {
     app.use(ghostServer.config.paths.subdir, ghostServer.rootApp);
     ghostServer.start(app);
     console.log('After Ghost then', process.env.port);
-    app.set('port', (process.env.PORT || 5000))
-        .set('views', root)
+    app.set('views', root)
         .engine('html', ejs.renderFile)
         .use(logger('dev'))
         .use(express.static(root))
         .get('/', function (req, res) {
         res.render('index.html');
     })
-        .listen(app.get('port'));
+        .listen(process.env.PORT || 5000);
 })
     .catch(function (err) {
     console.log('Ghost failed', err);

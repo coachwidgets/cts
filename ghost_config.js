@@ -11,7 +11,7 @@ config = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: 'https://coachtrainingschools.com/blog',
+        url: process.env.MY_URL,
         fileStorage: false,
         mail: {},
         database: {

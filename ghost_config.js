@@ -26,7 +26,7 @@ config = {
             debug: false
         },
         paths: {
-            subdir: path.join(__dirname, '/content/')
+            contentPath: path.join(__dirname, 'ghost/content/')
         },
         server: {
             host: '0.0.0.0',

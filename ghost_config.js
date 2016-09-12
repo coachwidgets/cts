@@ -23,7 +23,7 @@ config = {
                 database: process.env.POSTGRES_DATABASE,
                 port: '5432'
             },
-            debug: false
+            debug: true
         },
         paths: {
             contentPath: path.join(__dirname, 'ghost/content/')

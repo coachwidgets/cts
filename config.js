@@ -25,7 +25,9 @@ config = {
             },
             debug: false
         },
-
+        paths: {
+            subdir: path.join(__dirname, '/content/')
+        },
         server: {
             host: '0.0.0.0',
             port: process.env.PORT

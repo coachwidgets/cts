@@ -8,9 +8,10 @@ let express = require('express'),
     app = express();
 
 ghost().then((ghostServer) => {
+  console.log('ghostServer.config.paths.subdir, ghostServer.rootApp', ghostServer.config.paths.subdir, ghostServer.rootApp)
     app.use(ghostServer.config.paths.subdir, ghostServer.rootApp);
     ghostServer.start(app);
-
+    console.log('After Ghost then', process.env.port)
     app.set('port', (process.env.PORT || 5000))
         // view engine setup
         .set('views', root)
@@ -20,41 +21,12 @@ ghost().then((ghostServer) => {
         //.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
         .use(logger('dev'))
         .use(express.static(root))
-
-        // catch 404 and forward to error handler
-        .use((req, res, next) => {
-            let err = {
-                message: 'Not Found',
-                status: 404
-            }
-            next(err);
-        });
-
-    // error handlers
-
-    // development error handler
-    // will print stacktrace
-    if (process.env === 'develop') {
-        app.use((err, req, res, next) => {
-            res.status(err.status || 500);
-            res.render('error', {
-                message: err.message,
-                error: err
-            });
-        });
-    }
-
-    // production error handler
-    // no stacktraces leaked to user
-    app.use((err, req, res, next) => {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: {}
-        });
-    })
         .get('/', (req, res) => {
             res.render('index.html');
         })
         .listen(app.get('port'));
+
 })
+    .catch((err) => {
+        console.log('Ghost failed', err)
+    })

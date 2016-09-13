@@ -3,6 +3,14 @@ ghost({
     config: ghostConfigPath
 }).then(function (ghostServer) {
     console.log('ghostServer.config.paths.subdir, ghostServer.rootApp', ghostServer.config.paths.subdir, ghostServer.rootApp);
+    app.use(ghostServer.config.paths.subdir, ghostServer.rootApp)
+        .set('views', root)
+        .engine('html', ejs.renderFile)
+        .use(logger('dev'))
+        .use(express.static(root))
+        .get('/app', function (req, res) {
+        res.render('index.html');
+    });
     ghostServer.start();
 })
     .catch(function (err) {

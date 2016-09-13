@@ -12,7 +12,6 @@ ghost({
     config: ghostConfigPath
 }).then((ghostServer) => {
     console.log('ghostServer.config.paths.subdir, ghostServer.rootApp', ghostServer.config.paths.subdir, ghostServer.rootApp)
-    /*
     app.use(ghostServer.config.paths.subdir, ghostServer.rootApp)
     .set('views', root)
     .engine('html', ejs.renderFile)
@@ -24,7 +23,6 @@ ghost({
     .get('/app', (req, res) => {
       res.render('index.html');
     })
-    */
     ghostServer.start();
 })
     .catch((err) => {

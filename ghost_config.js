@@ -29,7 +29,7 @@ config = {
         }
       }
     },
-    fileStorage: fileStorage,
+    fileStorage: true,
     storage: storage,
     database: {
       client: 'postgres',

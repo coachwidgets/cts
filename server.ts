@@ -6,7 +6,6 @@ let express = require('express'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     ghost = require('ghost'),
-    overrides = require('ghost/core/server/overrides'),
     app = express();
 
 ghost({

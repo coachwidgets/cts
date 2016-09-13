@@ -41,7 +41,7 @@ config = {
       port: process.env.PORT
     },
     paths: {
-      contentPath: path.join(__dirname, 'ghost/content/')
+      contentPath: path.join(__dirname, 'content')
     }
   },
 

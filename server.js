@@ -5,6 +5,13 @@ ghost({
 }).then(function (ghostServer) {
     console.log('ghostServer.config.paths.subdir, ghostServer.rootApp', ghostServer.config.paths.subdir, ghostServer.rootApp);
     app.use(ghostServer.config.paths.subdir, ghostServer.rootApp);
+    app.set('views', root)
+        .engine('html', ejs.renderFile)
+        .use(logger('dev'))
+        .use(express.static(root))
+        .get('/a', function (req, res) {
+        res.render('index.html');
+    });
     ghostServer.start(app);
     console.log('After Ghost then', process.env.port);
 })

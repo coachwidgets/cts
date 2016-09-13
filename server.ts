@@ -17,7 +17,7 @@ ghost({
     app.use(ghostServer.config.paths.subdir, ghostServer.rootApp);
     ghostServer.start(app);
     console.log('After Ghost then', process.env.port)
-
+    /*
     // view engine setup
     app.set('views', root)
         .engine('html', ejs.renderFile)
@@ -30,7 +30,7 @@ ghost({
             res.render('index.html');
         })
         //.listen(process.env.PORT || 5000);
-
+        */
 })
     .catch((err) => {
         console.log('Ghost failed', err)

@@ -1,7 +1,7 @@
 let express = require('express'),
     ejs = require('ejs'),
     path = require('path'),
-    configPath = path.join(__dirname, 'ghost_config.js'),
+    configPath = path.join(__dirname, 'ghost/config.js'),
     ghostConfig = require(configPath)[process.env.NODE_ENV],
     root = path.join(__dirname, 'build/unbundled'),
     favicon = require('serve-favicon'),

@@ -11,7 +11,7 @@ ghost({
         .engine('html', ejs.renderFile)
         .use(logger('dev'))
         .use(express.static(root))
-        .get('/', function (req, res) {
+        .get('/app', function (req, res) {
         res.render('index.html');
     });
 })

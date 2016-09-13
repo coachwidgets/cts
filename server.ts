@@ -26,7 +26,7 @@ ghost({
         //.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
         .use(logger('dev'))
         .use(express.static(root))
-        .get('/', (req, res) => {
+        .get('/app', (req, res) => {
             res.render('index.html');
         })
         //.listen(process.env.PORT || 5000);

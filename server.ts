@@ -20,7 +20,7 @@ ghost({
     //.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
     .use(logger('dev'))
     .use(express.static(root))
-    .get('/app', (req, res) => {
+    .get('/', (req, res) => {
       res.render('index.html');
     })
     ghostServer.start(app);

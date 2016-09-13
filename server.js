@@ -8,7 +8,7 @@ ghost({
         .engine('html', ejs.renderFile)
         .use(logger('dev'))
         .use(express.static(root))
-        .get('/app', function (req, res) {
+        .get('/', function (req, res) {
         res.render('index.html');
     });
     ghostServer.start(app);

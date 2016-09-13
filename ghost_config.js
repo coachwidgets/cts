@@ -18,7 +18,7 @@ config = {
 
   // Production (Heroku)
   production: {
-    url: process.env.HEROKU_URL,
+    url: process.env.HEROKU_URL+'/blog',
     mail: {
       transport: 'SMTP',
       options: {
@@ -41,7 +41,7 @@ config = {
       port: process.env.PORT
     },
     paths: {
-      contentPath: path.join(__dirname, '/content/')
+      contentPath: path.join(__dirname, '/ghost/content/')
     }
   },
 

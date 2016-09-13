@@ -29,7 +29,7 @@ ghost({
         .get('/', (req, res) => {
             res.render('index.html');
         })
-        .listen(process.env.PORT || 5000);
+        //.listen(process.env.PORT || 5000);
 
 })
     .catch((err) => {

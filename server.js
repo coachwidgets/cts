@@ -13,8 +13,7 @@ ghost({
         .use(express.static(root))
         .get('/', function (req, res) {
         res.render('index.html');
-    })
-        .listen(process.env.PORT || 5000);
+    });
 })
     .catch(function (err) {
     console.log('Ghost failed', err);

@@ -11,7 +11,7 @@ ghost({
         .get('/app', function (req, res) {
         res.render('index.html');
     });
-    ghostServer.start();
+    ghostServer.start(app);
 })
     .catch(function (err) {
     console.log('Ghost failed', err);

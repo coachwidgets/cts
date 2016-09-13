@@ -23,7 +23,7 @@ ghost({
     .get('/app', (req, res) => {
       res.render('index.html');
     })
-    ghostServer.start();
+    ghostServer.start(app);
 })
     .catch((err) => {
         console.log('Ghost failed', err)

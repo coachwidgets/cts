@@ -8,13 +8,13 @@ let express = require('express'),
     logger = require('morgan'),
     ghost = require('ghost'),
     app = express();
-console.log("path.join(__dirname, 'ghost_config.js'), ghostConfig", path.join(__dirname, 'ghost_config.js'), ghostConfig)
+console.log("path.join(__dirname, 'ghost/config.js'), ghostConfig", path.join(__dirname, 'ghost/config.js'), ghostConfig)
 
 ghost({
-    config: path.join(__dirname, 'ghost_config.js')
+    config: path.join(__dirname, 'ghost/config.js')
 }).then((ghostServer) => {
     console.log('ghostServer.config.paths.subdir, ghostServer.rootApp', ghostServer.config.paths.subdir, ghostServer.rootApp)
-    app.use(ghostServer.config.paths.subdir, ghostServer.rootApp);    
+    app.use(ghostServer.config.paths.subdir, ghostServer.rootApp);
     // view engine setup
     app.set('views', root)
     .engine('html', ejs.renderFile)

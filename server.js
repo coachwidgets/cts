@@ -1,7 +1,7 @@
 var express = require('express'), ejs = require('ejs'), path = require('path'), configPath = path.join(__dirname, 'ghost_config.js'), ghostConfig = require(configPath)[process.env.NODE_ENV], root = path.join(__dirname, 'build/unbundled'), favicon = require('serve-favicon'), logger = require('morgan'), ghost = require('ghost'), app = express();
-console.log("path.join(__dirname, 'ghost_config.js'), ghostConfig", path.join(__dirname, 'ghost_config.js'), ghostConfig);
+console.log("path.join(__dirname, 'ghost/config.js'), ghostConfig", path.join(__dirname, 'ghost/config.js'), ghostConfig);
 ghost({
-    config: path.join(__dirname, 'ghost_config.js')
+    config: path.join(__dirname, 'ghost/config.js')
 }).then(function (ghostServer) {
     console.log('ghostServer.config.paths.subdir, ghostServer.rootApp', ghostServer.config.paths.subdir, ghostServer.rootApp);
     app.use(ghostServer.config.paths.subdir, ghostServer.rootApp);
